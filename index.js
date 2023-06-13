@@ -6,16 +6,22 @@ var bodyParser = require("body-parser");
 const morgan = require("morgan");
 const dotenv = require("dotenv");
 
-dotenv.config();
-//CONNECT DATABASE
-mongoose.connect((process.env.MONGODB_URL), () => {
-    console.log("Database is connected to MongoDB");
+require('dotenv').config();
+
+const mongoString = process.env.MONGODB_URL;
+
+mongoose.connect(mongoString);
+const database = mongoose.connection;
+
+database.on('error', (error) => {
+    console.log(error);
 });
 
-app.use(bodyParser.json({limit:"50mb"}));
-app.use(cors());
-app.use(morgan("common"));
+database.once('connected', () => {
+    console.log('Database Connected');
+});
 
+app.use(express.json());
 app.listen(8000, () => {
     console.log("Server is running...");
 });
