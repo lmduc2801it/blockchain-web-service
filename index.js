@@ -6,14 +6,10 @@ var bodyParser = require("body-parser");
 const morgan = require("morgan");
 const dotenv = require("dotenv");
 
+dotenv.config();
 //CONNECT DATABASE
-
-// mongoose.connect("mongodb+srv://leduc2801:<Y6Dckan4sFxNsYqP>@cluster0.0a0e8ao.mongodb.net/?retryWrites=true&w=majority", () => {
-//     console.log("Database is connected to MongoDB");
-// });
-
-app.get("/api",(req,res)=>{
-    res.status(200).json("Hello, World!");
+mongoose.connect((process.env.MONGODB_URL), () => {
+    console.log("Database is connected to MongoDB");
 });
 
 app.use(bodyParser.json({limit:"50mb"}));

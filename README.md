@@ -1,5 +1,5 @@
 // Name of the project: Blockchain Project
-//Technology use in this project
+//Technology use in stack
 
 - Node.js
 - Express
@@ -8,4 +8,5 @@
 - MongoDB
 - Mongoose
 - Dotenv
-  // Documentation
+
+// Documentation
