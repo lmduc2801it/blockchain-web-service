@@ -1,27 +1,18 @@
 const express = require("express");
-const cors = require("cors");
 const app = express();
 const mongoose = require("mongoose");
-var bodyParser = require("body-parser");
-const morgan = require("morgan");
 const dotenv = require("dotenv");
-
 require('dotenv').config();
 
-const mongoString = process.env.MONGODB_URL;
 
-mongoose.connect(mongoString);
-const database = mongoose.connection;
-
-database.on('error', (error) => {
-    console.log(error);
+app.get('/',(req,res) => {
+    res.send("This is Home Page");
 });
 
-database.once('connected', () => {
-    console.log('Database Connected');
+//CONNECT TO DATABASE
+mongoose.connect(process.env.MONGODB_URL, () => {
+    console.log('Connected to database');
 });
 
-app.use(express.json());
-app.listen(8000, () => {
-    console.log("Server is running...");
-});
+//HOW TO WE START LISTENING TO THE SERVER
+app.listen(8000);
