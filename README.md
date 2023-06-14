@@ -1,4 +1,5 @@
-// Name of the project: Blockchain Project
+// Name of the project:
+Blockchain Project
 //Technology use in stack
 
 - Node.js
