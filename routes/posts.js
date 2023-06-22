@@ -1,29 +1,28 @@
-const express = require("express");
-const res = require("express/lib/response")
-const router = express.Router();
+// const express = require("express");
+// const res = require("express/lib/response")
+// const router = express.Router();
 
-const Post = require("../model/Post");
+// const Post = require("../model/toDo");
 
-//GET ALL THE POST
-router.get("/", (req, res) => {
-  res.send("This is the Post!");
-});
+// const handlePageError = (res, e) => res.setStatus(500).send(e.message);
 
-//SAVE THE POST
-router.post("/",  (req, res) => {
-  const post = new Post({
-    title : req.body.title,
-    description : req.body.description,
-  });
+// //GET ALL THE POST
+// router.get("/", (req, res) => {
+//   res.send("This is the Post!");
+// });
 
-  post
-    .save()
-    .then((data) => {
-      res.json(data);
-    })
-    .catch((err) => {
-      res.json({ message : err });
-    });
-});
+// //SAVE THE POST
+// router.post('/',(req, res) => {
+//     const post = new Post(req.body).save()
 
-module.exports = router;
+//     post
+//     .save()
+//     .then(() => {
+//       res.send({
+//         message: 'Created new post successfully!',
+//         data: post
+//       })
+//     })
+// });
+
+// module.exports = router;
